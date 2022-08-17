@@ -42,11 +42,10 @@ contract Marketplace {
     
     using SafeMath for uint;
 
-    struct Pass {
+    struct pass {
         address payable owner;
         string name;
         string image;
-        string description;
         string location;
         uint price;
         uint sold;
@@ -67,9 +66,11 @@ contract Marketplace {
         _;
     }
 
-    mapping (uint => Pass) public pass;
+    mapping (uint => pass) public pass;
+       _;
+    }
 
-    function writeProduct(
+    function writepass(
         string memory _name,
         string memory _image,
         string memory _description,
@@ -82,7 +83,7 @@ contract Marketplace {
         require(_price > 0, "enter a valid price");
         uint _sold = 0;
         bool _verified = false;
-        pass[passLength] = Product(
+        pass[passLength] = pass(
             payable(msg.sender),
             _name,
             _image,
@@ -95,7 +96,7 @@ contract Marketplace {
         passLength = passLength.add(1);
     }
 
-    function buyProduct(uint _index) public  payable isVerified(_index)  {
+    function buypass(uint _index) public  payable isVerified(_index)  {
         require(pass[_index].owner != address(0), "enter a valid pass index");
         require(
             IERC20Token(cUsdTokenAddress).transferFrom(
@@ -113,14 +114,11 @@ contract Marketplace {
     }
 
 
-    //    admin can veridy a prodyct
-    function verifyPass(uint _index) public  isAdmin {
+    //    admin can verify a pass
+    function verifypass(uint _index) public  isAdmin {
         pass[_index].verified = true;
     }
 
     function revokeOwnership(address _address) public isAdmin {
         adminAddress = _address;
     }
-
-}
-    
