@@ -25,14 +25,14 @@
 				"type": "uint256"
 			}
 		],
-		"name": "buyProduct",
+		"name": "buypass",
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "getProductsLength",
+		"name": "getpassLength",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -51,7 +51,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "products",
+		"name": "pass",
 		"outputs": [
 			{
 				"internalType": "address payable",
@@ -118,7 +118,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "verifyProduct",
+		"name": "verifypass",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -151,7 +151,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "writeProduct",
+		"name": "writepass",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
